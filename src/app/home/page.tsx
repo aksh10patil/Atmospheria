@@ -1,14 +1,16 @@
-import Hero from "../../../public/ui/Hero";
-import Navbar from "../../../public/ui/Navbar";
+import Navbar2 from "../../../public/ui/Navbar2";
+
 
 
 export default function Home() {  
 
 
 
-<>
-<Navbar />
-<Hero />
+<>  
+<div>
+<Navbar2 />
+</div>
+           
 </>
 
 }

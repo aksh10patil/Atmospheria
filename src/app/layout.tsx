@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import localFont from "next/font/local"; // 👈 import local font
+import { Geist, Geist_Mono, Ubuntu } from "next/font/google"; // ✅ no duplicate
+import localFont from "next/font/local";
 import "./globals.css";
 
 // Google fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const ubuntu = Ubuntu({
+  variable: "--font-ubuntu", // ✅ unique variable
+  subsets: ["latin"],
+  weight: "300"
 });
 
 const geistMono = Geist_Mono({
@@ -16,7 +22,7 @@ const geistMono = Geist_Mono({
 
 // Local font (adjust path & weight)
 const gua = localFont({
-  src: "../../public/fonts/Guadalupana-Regular.ttf", 
+  src: "../../public/fonts/Guadalupana-Regular.ttf",
   variable: "--font-guada",
   weight: "400",
 });
@@ -32,10 +38,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${gua.variable} antialiased`}
+        className={`${ubuntu.className} ${geistMono.variable} ${gua.variable} antialiased`}
       >
         {children}
       </body>
     </html>
   );
 }
+
